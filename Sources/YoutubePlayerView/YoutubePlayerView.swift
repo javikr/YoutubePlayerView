@@ -94,6 +94,7 @@ open class YoutubePlayerView: UIView {
     private var webView: WKWebView!
     fileprivate weak var loadingView: UIView?
     private var autoplay = false
+    private var fullscreen = false
     
     public weak var delegate: YoutubePlayerViewDelegate?
     
@@ -110,12 +111,13 @@ open class YoutubePlayerView: UIView {
             webConfiguration.requiresUserActionForMediaPlayback = false
         }
         
-        webConfiguration.allowsInlineMediaPlayback = true
+        webConfiguration.allowsInlineMediaPlayback = !fullscreen
         return webConfiguration
     }
     
-    public override init(frame: CGRect) {
+    public override init(frame: CGRect, fullscreen: Bool) {
         super.init(frame: frame)
+        self.fullscreen = fullscreen
         initializeView()
     }
     

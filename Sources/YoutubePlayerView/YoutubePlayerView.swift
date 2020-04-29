@@ -115,7 +115,7 @@ open class YoutubePlayerView: UIView {
         return webConfiguration
     }
     
-    public override init(frame: CGRect, fullscreen: Bool) {
+    public init(frame: CGRect, fullscreen: Bool) {
         super.init(frame: frame)
         self.fullscreen = fullscreen
         initializeView()
